@@ -3,6 +3,7 @@
 // ===================================
 
 // Tailwind configuration (shared across all pages)
+console.log("Script loaded");
 tailwind.config = {
   darkMode: "class",
   theme: {
@@ -124,12 +125,16 @@ document.addEventListener("DOMContentLoaded", function () {
   // Dynamic Menu Renderer
   // ===================================
   try {
-    if (typeof menuData !== "undefined" && vegSection && nonvegSection) {
-      renderMenu(menuData.menu);
-    } else if (vegSection && nonvegSection) {
-      console.error("menu-data.js is not loaded or menuData is inaccessible.");
-      vegSection.innerHTML = "<div class='text-on-surface-variant text-center'>Menu data unavailable.</div>";
-    }
+    setTimeout(() => {
+      if (typeof menuData !== "undefined" && vegSection && nonvegSection) {
+        console.log("menuData:", menuData);
+        renderMenu(menuData.menu);
+      } else {
+        console.error("menuData still not loaded");
+        if (vegSection) vegSection.innerHTML = "Menu failed to load. Please refresh.";
+        if (nonvegSection) nonvegSection.innerHTML = "";
+      }
+    }, 100);
   } catch (error) {
     console.error("Error during menu rendering logic execution:", error);
   }
