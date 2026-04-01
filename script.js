@@ -144,13 +144,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function formatPrice(item) {
     if (item.price_on_request) {
-      return '<span class="text-primary font-bold text-sm ml-4 whitespace-nowrap">Price on Request</span>';
+      return '<span class="text-primary font-bold text-sm whitespace-nowrap text-right">Price on Request</span>';
     }
     if (item.half !== undefined && item.full !== undefined) {
-      return `<span class="text-primary-container font-label text-sm ml-4 whitespace-nowrap">₹${item.half} <span class="text-[10px] text-outline">Half</span> | ₹${item.full} <span class="text-[10px] text-outline">Full</span></span>`;
+      return `<span class="text-primary-container font-label text-sm whitespace-nowrap text-right">₹${item.half} <span class="text-[10px] text-outline">Half</span> | ₹${item.full} <span class="text-[10px] text-outline">Full</span></span>`;
     }
     if (item.price !== undefined) {
-      return `<span class="text-primary-container font-label text-sm ml-4 whitespace-nowrap">₹${item.price}</span>`;
+      return `<span class="text-primary-container font-label text-sm whitespace-nowrap text-right">₹${item.price}</span>`;
     }
     return "";
   }
@@ -175,8 +175,8 @@ document.addEventListener("DOMContentLoaded", () => {
     cat.items.forEach((item) => {
       itemsHTML += `
         <div class="group border-b border-outline-variant/15 pb-5">
-          <div class="flex justify-between items-start mb-1">
-            <h3 class="text-base md:text-lg font-headline group-hover:text-primary transition-colors">${item.name}</h3>
+          <div class="flex flex-wrap justify-between items-start gap-x-4 gap-y-1 mb-1">
+            <h3 class="text-base md:text-lg font-headline group-hover:text-primary transition-colors flex-1 min-w-[150px]">${item.name}</h3>
             ${formatPrice(item)}
           </div>
         </div>`;
@@ -185,9 +185,9 @@ document.addEventListener("DOMContentLoaded", () => {
     return `
       <section class="${wrapClass}">
         <div class="flex items-center gap-4 mb-8">
-          <h2 class="text-2xl md:text-3xl font-headline text-on-surface whitespace-nowrap">${cat.category}</h2>
+          <h2 class="text-2xl md:text-3xl font-headline text-on-surface">${cat.category}</h2>
           <div class="h-[1px] flex-grow bg-outline-variant/30"></div>
-          <span class="text-[10px] ${tagColor} px-3 py-1 rounded-full uppercase tracking-widest whitespace-nowrap">${tagLabel}</span>
+          <span class="text-[10px] ${tagColor} px-3 py-1 rounded-full uppercase tracking-widest shrink-0">${tagLabel}</span>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
           ${itemsHTML}
@@ -331,9 +331,9 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>`;
         items.forEach((item) => {
           const name = highlightMatch(item.name, query);
-          html += `<div class="flex justify-between items-center px-4 py-3 rounded-lg mx-2 hover:bg-surface-container transition-colors cursor-default">
-            <span class="font-headline text-on-surface text-[15px]">${name}</span>
-            ${formatSearchPrice(item)}
+          html += `<div class="flex flex-wrap justify-between items-center px-4 py-3 rounded-lg mx-2 hover:bg-surface-container transition-colors cursor-default gap-x-4 gap-y-1">
+            <span class="font-headline text-on-surface text-[15px] flex-1 min-w-[150px]">${name}</span>
+            <div class="text-right shrink-0">${formatSearchPrice(item)}</div>
           </div>`;
         });
         html += `</div>`;
