@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sumandev911.github.io/Mothermasalafamilykitchen/sitemap.xml
