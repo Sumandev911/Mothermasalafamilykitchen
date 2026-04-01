@@ -127,20 +127,6 @@ document.addEventListener("DOMContentLoaded", () => {
     renderMenu(menuData.menu);
   }
 
-  function classifyCategory(name) {
-    const upper = name.toUpperCase();
-    // Check NON VEG first (before VEG check)
-    if (upper.includes("NON VEG")) return "nonveg";
-    if (upper.includes("VEG")) return "veg";
-    if (upper.includes("MUTTON")) return "nonveg";
-    if (upper.includes("MALVANI")) return "nonveg";
-    if (upper.includes("FISH")) return "nonveg";
-    if (upper.includes("TANDOORI")) return "nonveg";
-    if (upper.includes("EGG")) return "nonveg";
-    if (upper === "BIRYANI") return "nonveg";
-    // Common categories for both tabs
-    return "both";
-  }
 
   function formatPrice(item) {
     if (item.price_on_request) {
@@ -156,14 +142,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function renderCategoryHTML(cat, index) {
-    const type = classifyCategory(cat.category);
-    const isVeg = type === "veg" || type === "both";
-    const tagColor = isVeg && type !== "both"
+    const type = cat.type;
+    const isVeg = type === "veg";
+    const tagColor = isVeg
       ? 'bg-green-900/30 text-green-400'
       : type === "nonveg"
         ? 'bg-red-900/30 text-red-400'
         : 'bg-yellow-900/30 text-yellow-400';
-    const tagLabel = isVeg && type !== "both" ? "Veg" : type === "nonveg" ? "Non-Veg" : "All";
+    const tagLabel = isVeg ? "Veg" : type === "nonveg" ? "Non-Veg" : "All";
 
     // Alternate styling for visual variety
     const useCard = index % 3 === 1;
@@ -201,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let nonvegHTML = "";
 
     categories.forEach((cat, i) => {
-      const type = classifyCategory(cat.category);
+      const type = cat.type;
       const html = renderCategoryHTML(cat, i);
 
       if (type === "veg") {
@@ -209,7 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else if (type === "nonveg") {
         nonvegHTML += html;
       } else {
-        // "both" — show in both tabs
+        // "both" — show in both tabs (fallback if added)
         vegHTML += html;
         nonvegHTML += html;
       }

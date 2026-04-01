@@ -8,6 +8,7 @@ const menuData = {
   menu: [
     {
       category: "INDIAN MAIN COURSE VEG",
+      type: "veg",
       items: [
         { name: "Mix Veg", half: 110, full: 170 },
         { name: "Veg Kolhapuri", half: 120, full: 180 },
@@ -63,6 +64,7 @@ const menuData = {
     },
     {
       category: "INDIAN VEG STARTER",
+      type: "veg",
       items: [
         { name: "Paneer Pakoda", price: 170 },
         { name: "Paneer Koliwada", price: 200 },
@@ -78,6 +80,7 @@ const menuData = {
     },
     {
       category: "INDIAN RICE",
+      type: "veg",
       items: [
         { name: "Steam Rice", half: 80, full: 100 },
         { name: "Jeera Rice", half: 90, full: 130 },
@@ -100,6 +103,7 @@ const menuData = {
     },
     {
       category: "CHINESE VEG RICE & NOODLES",
+      type: "veg",
       items: [
         { name: "Veg Fried Rice", half: 90, full: 150 },
         { name: "Veg Schezwan Rice", half: 100, full: 160 },
@@ -122,6 +126,7 @@ const menuData = {
     },
     {
       category: "CHINESE VEG STARTER & GRAVY",
+      type: "veg",
       items: [
         { name: "Veg Manchurian Dry", half: 110, full: 150 },
         { name: "Veg Crispy", half: 120, full: 190 },
@@ -140,6 +145,7 @@ const menuData = {
     },
     {
       category: "CHINESE VEG SOUP",
+      type: "veg",
       items: [
         { name: "Veg Manchow Soup", half: 80, full: 120 },
         { name: "Veg Noodles Soup", price: 120 },
@@ -155,6 +161,7 @@ const menuData = {
     },
     {
       category: "INDIAN NON VEG STARTER",
+      type: "nonveg",
       items: [
         { name: "Chicken Koliwada", half: 140, full: 220 },
         { name: "Chicken Tawa", half: 160, full: 260 },
@@ -172,6 +179,7 @@ const menuData = {
     },
     {
       category: "INDIAN MAIN COURSE NON VEG",
+      type: "nonveg",
       items: [
         { name: "Chicken Mother Special", price: 260 },
         { name: "Chicken Masala", half: 120, full: 190 },
@@ -203,6 +211,7 @@ const menuData = {
     },
     {
       category: "MUTTON MAIN COURSE",
+      type: "nonveg",
       items: [
         { name: "Mutton Masala", half: 170, full: 260 },
         { name: "Mutton Kadai", half: 180, full: 300 },
@@ -215,6 +224,7 @@ const menuData = {
     },
     {
       category: "TANDOORI STARTER",
+      type: "nonveg",
       items: [
         { name: "Mother Masala Spl Kabab", price: 360 },
         { name: "Tandoori Chicken (Half)", price: 200 },
@@ -232,13 +242,20 @@ const menuData = {
         { name: "Chicken Khasta Kebab", price: 240 },
         { name: "Atom Bomb Kebab", half: 260, full: 280 },
         { name: "Labnani Kebab", price: 280 },
-        { name: "Chicken Platter", price: 700 },
+        { name: "Chicken Platter", price: 700 }
+      ]
+    },
+    {
+      category: "VEG TANDOORI STARTER",
+      type: "veg",
+      items: [
         { name: "Gobi Tandoori", price: 170 },
         { name: "Mushroom Tikka", price: 190 }
       ]
     },
     {
       category: "BIRYANI",
+      type: "nonveg",
       items: [
         { name: "Chicken Biryani", half: 110, full: 190 },
         { name: "Chicken Biryani Boneless", half: 130, full: 220 },
@@ -260,6 +277,7 @@ const menuData = {
     },
     {
       category: "MALVANI",
+      type: "nonveg",
       items: [
         { name: "Chicken Malvani", price: 230 },
         { name: "Mutton Malvani", price: 340 }
@@ -267,6 +285,7 @@ const menuData = {
     },
     {
       category: "FISH MENU",
+      type: "nonveg",
       items: [
         { name: "Prawns", price_on_request: true },
         { name: "Banghda", price_on_request: true },
@@ -278,6 +297,7 @@ const menuData = {
     },
     {
       category: "CHINESE NON VEG RICE & NOODLES",
+      type: "nonveg",
       items: [
         { name: "Mother Masala Spl Rice", price: 230 },
         { name: "Chicken Fried Rice", half: 100, full: 160 },
@@ -306,6 +326,7 @@ const menuData = {
     },
     {
       category: "CHINESE NON VEG STARTER & GRAVY",
+      type: "nonveg",
       items: [
         { name: "Chicken Spring Roll", price: 210 },
         { name: "Chicken Chilly Dry", half: 130, full: 200 },
@@ -329,6 +350,7 @@ const menuData = {
     },
     {
       category: "CHINESE NON VEG SOUP",
+      type: "nonveg",
       items: [
         { name: "Chicken Manchow Soup", half: 90, full: 140 },
         { name: "Chicken Noodles Soup", price: 140 },
@@ -339,6 +361,7 @@ const menuData = {
     },
     {
       category: "EGG MENU",
+      type: "nonveg",
       items: [
         { name: "Egg Omelette", price: 60 },
         { name: "Egg Bhurji", price: 80 },
@@ -350,18 +373,26 @@ const menuData = {
       ]
     },
     {
-      category: "THALI",
+      category: "THALI NON VEG",
+      type: "nonveg",
       items: [
         { name: "Chicken Thali", price: 180 },
         { name: "Mutton Thali", price: 200 },
         { name: "Bangda Thali", price: 160 },
         { name: "Surmai/Prawns Thali", price_on_request: true },
-        { name: "Egg Thali", price: 150 },
+        { name: "Egg Thali", price: 150 }
+      ]
+    },
+    {
+      category: "THALI VEG",
+      type: "veg",
+      items: [
         { name: "Veg Thali", price: 140 }
       ]
     },
     {
       category: "BREAD ROTI",
+      type: "veg",
       items: [
         { name: "Tandoori Roti", price: 15 },
         { name: "Butter Roti", price: 20 },
@@ -369,7 +400,6 @@ const menuData = {
         { name: "Garlic Roti", price: 40 },
         { name: "Jeera Roti", price: 30 },
         { name: "Methi Paratha", price: 50 },
-        { name: "Chicken Paratha", price: 90 },
         { name: "Plain Naan", price: 35 },
         { name: "Butter Naan", price: 40 },
         { name: "Cheese Naan", price: 60 },
@@ -386,7 +416,15 @@ const menuData = {
       ]
     },
     {
+      category: "NON VEG BREAD",
+      type: "nonveg",
+      items: [
+        { name: "Chicken Paratha", price: 90 }
+      ]
+    },
+    {
       category: "SALAD & RAITHA",
+      type: "veg",
       items: [
         { name: "Veg Raitha", price: 70 },
         { name: "Boondi Raitha", price: 70 },
@@ -398,7 +436,8 @@ const menuData = {
       ]
     },
     {
-      category: "Drinks",
+      category: "DRINKS",
+      type: "veg",
       items: [
         { name: "Butter Milk", price: 40 },
         { name: "Lassi", price: 60 },
@@ -406,11 +445,18 @@ const menuData = {
       ]
     },
     {
-      category: "BIRYANI BY KG",
+      category: "VEG BIRYANI BY KG",
+      type: "veg",
       items: [
         { name: "Veg Biryani", price: 850 },
         { name: "Paneer Biryani", price: 1000 },
-        { name: "Paneer Tikka Biryani", price: 1200 },
+        { name: "Paneer Tikka Biryani", price: 1200 }
+      ]
+    },
+    {
+      category: "NON VEG BIRYANI BY KG",
+      type: "nonveg",
+      items: [
         { name: "Chicken Biryani", price: 950 },
         { name: "Chicken Tikka Biryani", price: 1200 },
         { name: "Chicken Tandoori Biryani", price: 1300 },
