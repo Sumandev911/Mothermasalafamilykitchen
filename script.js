@@ -74,7 +74,7 @@ tailwind.config = {
 // ===================================
 // DOM Ready
 // ===================================
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
 
   // --- Mobile Nav Toggle ---
   const menuBtn = document.getElementById("mobile-menu-btn");
@@ -123,8 +123,15 @@ document.addEventListener("DOMContentLoaded", () => {
   // ===================================
   // Dynamic Menu Renderer
   // ===================================
-  if (typeof menuData !== "undefined" && vegSection && nonvegSection) {
-    renderMenu(menuData.menu);
+  try {
+    if (typeof menuData !== "undefined" && vegSection && nonvegSection) {
+      renderMenu(menuData.menu);
+    } else if (vegSection && nonvegSection) {
+      console.error("menu-data.js is not loaded or menuData is inaccessible.");
+      vegSection.innerHTML = "<div class='text-on-surface-variant text-center'>Menu data unavailable.</div>";
+    }
+  } catch (error) {
+    console.error("Error during menu rendering logic execution:", error);
   }
 
 
