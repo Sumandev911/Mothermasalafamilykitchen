@@ -159,9 +159,10 @@
 
     <!-- full-width map (click-to-load facade — keeps the heavy iframe off initial load) -->
     <section class="map-embed" aria-label="Map to Mother Masala Family Kitchen">
+      <!-- no aria-label: the button's own text is the accessible name, so it always
+           contains the visible label (WCAG 2.5.3 Label in Name) -->
       <button type="button" class="map-facade" id="map-facade"
-        data-src="https://www.google.com/maps?q=Evershine+Homes+Global+City+Virar+West+401303&output=embed"
-        aria-label="Load interactive map of Mother Masala, Global City, Virar West">
+        data-src="https://www.google.com/maps?q=Evershine+Homes+Global+City+Virar+West+401303&output=embed">
         <span class="map-facade-in">
           <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
           <strong>Global City, Virar West</strong>

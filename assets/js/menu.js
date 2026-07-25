@@ -31,7 +31,7 @@
 
     var items = cat.items.map(function (it) {
       return '<li class="menu-item">' +
-        '<span class="mi-mark ' + cat.type + '" aria-label="' + (isVeg ? 'Veg' : 'Non-veg') + '"></span>' +
+        '<span class="mi-mark ' + cat.type + '" role="img" aria-label="' + (isVeg ? 'Veg' : 'Non-veg') + '"></span>' +
         '<span class="mi-name">' + it.name + '</span>' +
         '<span class="mi-price">' + priceHTML(it) + '</span>' +
       '</li>';
