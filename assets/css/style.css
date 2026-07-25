@@ -284,14 +284,8 @@ body.banner-dismissed .delivery-banner { display: none; }
 .hc-1 { top: 4%; right: -2%; }
 .hc-2 { bottom: 10%; left: -4%; }
 
-/* sample-photo label (stock placeholders awaiting real photos) */
-.photo-slot { position: relative; }
-.photo-slot::after {
-  content: "Sample photo"; position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%);
-  font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
-  color: #fff7ee; background: rgba(0, 0, 0, 0.55); padding: 4px 12px; border-radius: 20px; white-space: nowrap; z-index: 2;
-}
-.hero-pill.photo-slot::after { bottom: auto; top: 18px; } /* keep clear of the review badge */
+/* Per-image "Sample photo" badges removed — replaced by the single standing
+   disclaimer in the footer (.footer-note), which covers every image on the site. */
 .review-badge {
   position: absolute; left: -6px; bottom: 30px; z-index: 2;
   background: var(--card); border: 1px solid var(--line-strong); border-radius: 16px;
@@ -430,6 +424,8 @@ body.banner-dismissed .delivery-banner { display: none; }
 .footer-list li { margin-bottom: 12px; }
 .footer-contact li { display: flex; gap: 10px; margin-bottom: 12px; }
 .footer-contact svg { color: var(--accent); flex: none; margin-top: 3px; }
+/* standing image disclaimer — replaces the old per-image "Sample photo" badges */
+.footer-note { margin: 0; padding-top: 26px; font-size: .82rem; line-height: 1.6; color: var(--text); opacity: .75; max-width: 62ch; }
 .footer-bottom { border-top: 1px solid var(--line); padding: 22px 0; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; font-size: .88rem; }
 .footer-bottom p { margin: 0; }
 .footer-bottom a { color: var(--accent); }
