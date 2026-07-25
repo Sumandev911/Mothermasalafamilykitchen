@@ -391,11 +391,18 @@ body.banner-dismissed .delivery-banner { display: none; }
 .stat-card { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 28px; text-align: center; }
 .stat-card .stat-num { font-size: 2.4rem; font-weight: 800; color: var(--accent); line-height: 1; display: inline-flex; align-items: center; gap: 6px; }
 .stat-card .stat-lbl { display: block; margin-top: 8px; color: var(--text); font-size: .95rem; }
-.reviews-embed {
-  background: var(--card); border: 1px dashed var(--line-strong); border-radius: 20px;
-  padding: 40px 28px; text-align: center;
+/* Elfsight reviews widget container.
+   min-height reserves the slot before the lazy widget injects itself, so its arrival
+   does not push the rest of the page down (the site is at CLS 0 — keep it there).
+   Elfsight styles its own cards; we only own the box they sit in. */
+.reviews-widget {
+  max-width: 100%;
+  /* measured 551-588px across 360-1280px; reserve the tallest so the widget never
+     grows into the CTAs below it when it lazy-loads */
+  min-height: 590px;
+  margin-bottom: 34px;
 }
-.reviews-embed p { color: var(--text); margin-bottom: 20px; }
+.reviews-widget > div { max-width: 100%; }
 .reviews-cta { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
 
 /* ============================== LOCATION / MAP ============================== */

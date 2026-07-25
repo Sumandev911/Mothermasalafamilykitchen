@@ -133,8 +133,25 @@
       </div>
     </section>
 
+    <!-- real Google reviews (Elfsight) — proof sits right after the claims above -->
+    <section class="section reviews bg-warm-2" id="reviews">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow">What people say</span>
+          <h2 data-word-reveal="scroll">Reviews from <span class="accent-word">our regulars</span></h2>
+          <p>Pulled live from our Google Business profile — real customers, unedited.</p>
+        </div>
+        <div class="reviews-widget" data-fade>
+          <div class="elfsight-app-8d48b7c0-699c-4741-833d-2c6f1a08a9bf" data-elfsight-app-lazy></div>
+        </div>
+        <div class="reviews-cta" data-fade>
+          <a class="btn btn-accent" href="https://www.google.com/maps/search/Mother+Masala+Family+Kitchen+Virar+West">Read our Google reviews</a>
+        </div>
+      </div>
+    </section>
+
     <!-- party / catering -->
-    <section class="section party bg-warm-2" id="party">
+    <section class="section party bg-warm" id="party">
       <div class="container">
         <div class="party-inner" data-fade>
           <div class="party-copy">
@@ -157,7 +174,7 @@
     </section>
 
     <!-- FAQ -->
-    <section class="section faq bg-warm">
+    <section class="section faq bg-warm-2">
       <div class="container">
         <div class="section-head center">
           <span class="eyebrow">Good to know</span>
@@ -235,5 +252,9 @@
       if (close) close.addEventListener('click', function () { document.body.classList.add('banner-dismissed'); });
     })();
   </script>
+
+  <!-- Elfsight platform — loads the reviews widget above. Async so it never blocks
+       render; the widget's own data-elfsight-app-lazy defers the fetch until scroll. -->
+  <script src="https://elfsightcdn.com/platform.js" async></script>
 </body>
 </html>

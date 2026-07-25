@@ -342,19 +342,21 @@
         <div class="section-head center">
           <span class="eyebrow">What people say</span>
           <h2 data-word-reveal="scroll">Real reviews, <span class="accent-word">real regulars</span></h2>
-          <p>We'd rather show you the honest numbers than invent quotes. Read the real reviews on Google and Zomato — then come taste for yourself.</p>
+          <p>Straight from our Google Business profile — every review below is a real one, unedited. Read them, then come taste for yourself.</p>
         </div>
         <div class="review-stats" data-fade-group="3">
           <div class="stat-card"><span class="stat-num"><span data-count="119">0</span>+</span><span class="stat-lbl">Google reviews</span></div>
           <div class="stat-card"><span class="stat-num"><span data-count="4.1" data-decimals="1">0</span>★</span><span class="stat-lbl">Zomato delivery rating</span></div>
           <div class="stat-card"><span class="stat-num"><span data-count="300">0</span>+</span><span class="stat-lbl">dishes served daily</span></div>
         </div>
-        <div class="reviews-embed" data-fade>
-          <p>Live Google reviews widget slot — reserved for the restaurant's real Google Business reviews.</p>
-          <div class="reviews-cta">
-            <a class="btn btn-accent" href="https://www.google.com/maps/search/Mother+Masala+Family+Kitchen+Virar+West">Read our Google reviews</a>
-            <a class="btn btn-outline" href="https://wa.me/919972351151?text=Hi%2C%20I%27d%20like%20to%20order%20from%20Mother%20Masala%3A%20">Order &amp; leave your own</a>
-          </div>
+        <!-- Elfsight Google Reviews — real reviews pulled from the Google Business
+             profile. data-elfsight-app-lazy keeps it from loading until scrolled to. -->
+        <div class="reviews-widget" data-fade>
+          <div class="elfsight-app-8d48b7c0-699c-4741-833d-2c6f1a08a9bf" data-elfsight-app-lazy></div>
+        </div>
+        <div class="reviews-cta" data-fade>
+          <a class="btn btn-accent" href="https://www.google.com/maps/search/Mother+Masala+Family+Kitchen+Virar+West">Read our Google reviews</a>
+          <a class="btn btn-outline" href="https://wa.me/919972351151?text=Hi%2C%20I%27d%20like%20to%20order%20from%20Mother%20Masala%3A%20">Order &amp; leave your own</a>
         </div>
       </div>
     </section>
@@ -450,5 +452,9 @@
       if (close) close.addEventListener('click', function () { document.body.classList.add('banner-dismissed'); });
     })();
   </script>
+
+  <!-- Elfsight platform — loads the reviews widget above. Async so it never blocks
+       render; the widget's own data-elfsight-app-lazy defers the fetch until scroll. -->
+  <script src="https://elfsightcdn.com/platform.js" async></script>
 </body>
 </html>
