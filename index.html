@@ -453,8 +453,41 @@
     })();
   </script>
 
-  <!-- Elfsight platform — loads the reviews widget above. Async so it never blocks
-       render; the widget's own data-elfsight-app-lazy defers the fetch until scroll. -->
-  <script src="https://elfsightcdn.com/platform.js" async></script>
+  <!-- Elfsight platform, kept off the initial page load.
+       data-elfsight-app-lazy defers the widget's data fetch but not platform.js
+       itself, which still parsed and executed on load and cost ~290ms of blocking
+       time (homepage Performance 93 -> 80). This injects it on the reader's first
+       scroll instead, so the cost lands after the page is interactive.
+
+       First scroll rather than "section in view": the widget needs ~3.5s from
+       injection to paint on a throttled phone, and the reviews block sits several
+       screens down. Waiting until it is nearly on screen left the reserved box
+       empty when the reader arrived. Any scroll is the earliest honest signal of
+       intent, and it still keeps the whole cost out of the load window.
+       .reviews-widget reserves the height either way, so a slow paint shows empty
+       space rather than shifting the page. -->
+  <script>
+    (function () {
+      var slot = document.querySelector('.reviews-widget');
+      if (!slot) return;
+      var done = false;
+      function load() {
+        if (done) return;
+        done = true;
+        window.removeEventListener('scroll', load);
+        window.removeEventListener('touchstart', load);
+        window.removeEventListener('pointerdown', load);
+        var s = document.createElement('script');
+        s.src = 'https://elfsightcdn.com/platform.js';
+        s.async = true;
+        document.body.appendChild(s);
+      }
+      window.addEventListener('scroll', load, { passive: true, once: true });
+      window.addEventListener('touchstart', load, { passive: true, once: true });
+      window.addEventListener('pointerdown', load, { passive: true, once: true });
+      // already on screen (short page or large viewport): nothing to wait for
+      if (slot.getBoundingClientRect().top < window.innerHeight + 200) load();
+    })();
+  </script>
 </body>
 </html>
