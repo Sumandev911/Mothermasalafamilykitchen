@@ -403,7 +403,10 @@ body { padding-bottom: 58px; }
   html { scroll-behavior: smooth; }
   .js [data-fade] { opacity: 0; transform: translateY(30px); transition: opacity .6s ease, transform .6s ease; transition-delay: var(--stagger, 0s); }
   .js [data-fade].in-view { opacity: 1; transform: none; }
-  .wr { display: inline-block; max-width: 100%; opacity: 0; transform: translateY(.5em); transition: opacity .5s ease, transform .5s ease; }
+  /* inline-block + max-width caps the box, so a word longer than the line
+     (e.g. "NEIGHBOURHOOD" in an uppercase h2 at 390px) would spill past it and
+     widen the document — hyphenate, and hard-break anything hyphens can't fix. */
+  .wr { display: inline-block; max-width: 100%; overflow-wrap: break-word; hyphens: auto; opacity: 0; transform: translateY(.5em); transition: opacity .5s ease, transform .5s ease; }
   .wr-in { opacity: 1; transform: none; }
   .js [data-reveal] { clip-path: inset(0 100% 0 0 round var(--reveal-r, 24px)); transition: clip-path 1s cubic-bezier(.65,0,.25,1); }
   .js [data-reveal].in-view { clip-path: inset(0 0 0 0 round var(--reveal-r, 24px)); }
