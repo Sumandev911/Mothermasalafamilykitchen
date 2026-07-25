@@ -23,9 +23,8 @@
   <meta name="theme-color" content="#0e110d">
   <link rel="icon" type="image/png" href="assets/logo.png">
   <script>document.documentElement.classList.add('js')</script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400..800&family=Syne:wght@700..800&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/fonts/syne-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
   <script type="application/ld+json">
   {
@@ -125,7 +124,7 @@
           </div>
           <div class="hero-visual">
             <figure class="hero-pill photo-slot" data-reveal>
-              <img src="assets/img/interior-pill.webp" width="444" height="702" alt="Restaurant interior — sample photo, real photos coming soon" fetchpriority="high">
+              <img src="assets/img/interior-pill.webp" width="444" height="702" alt="Dining area at Mother Masala Family Kitchen, Virar West" fetchpriority="high">
             </figure>
             <figure class="hero-circle hc-1" data-fade><img src="assets/img/circle-biryani.webp" width="160" height="160" alt="" loading="lazy"></figure>
             <figure class="hero-circle hc-2" data-fade style="--stagger:.25s"><img src="assets/img/circle-curry.webp" width="160" height="160" alt="" loading="lazy"></figure>
@@ -166,37 +165,37 @@
         </div>
         <div class="dish-grid" data-fade-group="3">
           <article class="dish-item">
-            <figure class="dish-orb" data-reveal><span class="nonveg-mark" aria-label="Non-veg"></span><img src="assets/img/dish-butter-chicken.webp" width="520" height="520" loading="lazy" alt="Butter chicken — sample photo, real dish photo coming"></figure>
+            <figure class="dish-orb" data-reveal><span class="nonveg-mark" role="img" aria-label="Non-veg"></span><img src="assets/img/dish-butter-chicken.webp" width="520" height="520" loading="lazy" alt="Butter chicken at Mother Masala Family Kitchen, Virar West"></figure>
             <h3>Butter Chicken</h3>
             <p class="dish-desc">Creamy tomato gravy, our most-ordered main.</p>
             
           </article>
           <article class="dish-item">
-            <figure class="dish-orb" data-reveal><span class="nonveg-mark" aria-label="Non-veg"></span><img src="assets/img/dish-biryani.webp" width="520" height="520" loading="lazy" alt="Chicken biryani — sample photo, real dish photo coming"></figure>
+            <figure class="dish-orb" data-reveal><span class="nonveg-mark" role="img" aria-label="Non-veg"></span><img src="assets/img/dish-biryani.webp" width="520" height="520" loading="lazy" alt="Chicken biryani at Mother Masala Family Kitchen, Virar West"></figure>
             <h3>Chicken Biryani</h3>
             <p class="dish-desc">Long-grain rice, slow-layered and fragrant.</p>
             
           </article>
           <article class="dish-item">
-            <figure class="dish-orb" data-reveal><span class="nonveg-mark" aria-label="Non-veg"></span><img src="assets/img/dish-prawns.webp" width="520" height="520" loading="lazy" alt="Prawns dish — sample photo, real dish photo coming"></figure>
+            <figure class="dish-orb" data-reveal><span class="nonveg-mark" role="img" aria-label="Non-veg"></span><img src="assets/img/dish-prawns.webp" width="520" height="520" loading="lazy" alt="Prawns koliwada at Mother Masala Family Kitchen, Virar West"></figure>
             <h3>Prawns Koliwada</h3>
             <p class="dish-desc">Coastal Malvani spice, crisp-fried.</p>
             
           </article>
           <article class="dish-item">
-            <figure class="dish-orb" data-reveal><span class="veg-mark" aria-label="Veg"></span><img src="assets/img/dish-paneer-tikka.webp" width="520" height="520" loading="lazy" alt="Paneer tikka skewers — sample photo, real dish photo coming"></figure>
+            <figure class="dish-orb" data-reveal><span class="veg-mark" role="img" aria-label="Veg"></span><img src="assets/img/dish-paneer-tikka.webp" width="520" height="520" loading="lazy" alt="Paneer tikka skewers at Mother Masala Family Kitchen, Virar West"></figure>
             <h3>Paneer Tikka</h3>
             <p class="dish-desc">Char-grilled cottage cheese, tandoor-smoked.</p>
             
           </article>
           <article class="dish-item">
-            <figure class="dish-orb" data-reveal><span class="nonveg-mark" aria-label="Non-veg"></span><img src="assets/img/dish-tandoori.webp" width="520" height="520" loading="lazy" alt="Tandoori chicken platter — sample photo, real dish photo coming"></figure>
+            <figure class="dish-orb" data-reveal><span class="nonveg-mark" role="img" aria-label="Non-veg"></span><img src="assets/img/dish-tandoori.webp" width="520" height="520" loading="lazy" alt="Tandoori chicken platter at Mother Masala Family Kitchen, Virar West"></figure>
             <h3>Tandoori Chicken Platter</h3>
             <p class="dish-desc">A sharing spread straight off the tandoor.</p>
             
           </article>
           <article class="dish-item">
-            <figure class="dish-orb" data-reveal><span class="veg-mark" aria-label="Veg"></span><img src="assets/img/dish-noodles.webp" width="520" height="520" loading="lazy" alt="Hakka noodles — sample photo, real dish photo coming"></figure>
+            <figure class="dish-orb" data-reveal><span class="veg-mark" role="img" aria-label="Veg"></span><img src="assets/img/dish-noodles.webp" width="520" height="520" loading="lazy" alt="Hakka noodles at Mother Masala Family Kitchen, Virar West"></figure>
             <h3>Hakka Noodles</h3>
             <p class="dish-desc">Wok-tossed Indian-Chinese, smoky and street-style.</p>
             
@@ -312,8 +311,8 @@
             </div>
           </div>
           <div class="whyus-visual" data-fade>
-            <figure class="hero-circle photo-slot"><img src="assets/img/circle-biryani.webp" width="200" height="200" loading="lazy" alt="Biryani plates — sample photo"></figure>
-            <figure class="hero-circle photo-slot"><img src="assets/img/circle-curry.webp" width="200" height="200" loading="lazy" alt="Curry with roti — sample photo"></figure>
+            <figure class="hero-circle photo-slot"><img src="assets/img/circle-biryani.webp" width="200" height="200" loading="lazy" alt="Biryani served at Mother Masala Family Kitchen, Virar West"></figure>
+            <figure class="hero-circle photo-slot"><img src="assets/img/circle-curry.webp" width="200" height="200" loading="lazy" alt="Curry with roti at Mother Masala Family Kitchen, Virar West"></figure>
           </div>
         </div>
         <div class="stats-strip" data-fade-group="4">
